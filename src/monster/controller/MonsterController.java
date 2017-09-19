@@ -39,7 +39,7 @@ public class MonsterController
 		}
 		else if(armEat < 0)
 		{
-			System.out.println("Reality is hard for you -it is impossibl to eat a negative amount");
+			System.out.println("Reality is hard for you - it is impossible to eat a negative amount");
 		}
 		else if(armEat - currentMonster.getArmCount() > 0)
 		{
@@ -49,6 +49,26 @@ public class MonsterController
 		{
 			currentMonster.setArmCount(currentMonster.getArmCount() - armEat);
 			System.out.println("Ok, now I have this many arms " + currentMonster.getArmCount());
+		}
+		System.out.println("How many tentacles are you interested in eating?, I have " + currentMonster.getTentacleAmount());
+		int tentacleEat = myScanner.nextInt();
+		
+		if(tentacleEat == 0)
+		{
+			System.out.println("Not hungry? oh alright...");
+		}
+		else if(tentacleEat < 0)
+		{
+			System.out.println("Reality is hard for you - it is impossible to eat a negative amount");
+		}
+		else if(tentacleEat - currentMonster.getTentacleAmount() > 0)
+		{
+			System.out.println("You can't eat more than my existing tentacles.");
+		}
+		else
+		{
+			currentMonster.setTentacleAmount(currentMonster.getTentacleAmount() - tentacleEat);
+			System.out.println("Ok, now I have this many tentacles " + currentMonster.getTentacleAmount());
 		}
 		
 		myScanner.close();
