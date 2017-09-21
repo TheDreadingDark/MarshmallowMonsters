@@ -18,13 +18,17 @@ public MonsterController()
 	{
 		MarshmallowMonster basic = new MarshmallowMonster();
 		System.out.println(basic);
+		popup.displayText(basic.toString());
 		MarshmallowMonster galactus = new MarshmallowMonster("Scary Galactus Destroyer of Worlds Monster", 7, 3, 6.7, true);
 		System.out.println(galactus);
+		popup.displayText(galactus.toString());
 		System.out.println("I am feeling hungry, I am going to eat one of Galactus' arms");
+		popup.displayText("I am feeling hungry, I am going to eat one of Galactus' arms");
 		galactus.setArmCount(galactus.getArmCount() - 1);
 		System.out.println(galactus);
 		galactus.setArmCount(galactus.getArmCount() - 1);
 		System.out.println(galactus);
+		popup.displayText(galactus.toString());
 	
 		interactWithMonster(galactus);
 	}
