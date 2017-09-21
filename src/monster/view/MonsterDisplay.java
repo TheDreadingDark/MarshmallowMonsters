@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class MonsterDisplay
 {
+	//Activated GUI
 	public void displayText(String textToDisplay)
 	{
 		JOptionPane.showMessageDialog(null,  textToDisplay);
