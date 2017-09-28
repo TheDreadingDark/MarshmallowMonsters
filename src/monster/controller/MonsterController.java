@@ -3,15 +3,19 @@ package monster.controller;
 import monster.model.MarshmallowMonster;
 import java.util.Scanner;
 import monster.view.MonsterDisplay;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MonsterController
 {
 
 	private MonsterDisplay popup;
+	private List<MarshmallowMonster> monsterList;
 
 	public MonsterController()
 	{
 		popup = new MonsterDisplay();
+		monsterList = new ArrayList<MarshmallowMonster>();
 	}
 
 	public void start()
@@ -42,12 +46,29 @@ public class MonsterController
 		galactus.setArmCount(galactus.getArmCount() - 1);
 		// System.out.println(galactus);
 		popup.displayText(galactus.toString());
+		
+		monsterList.add(basic);
+		monsterList.add(galactus);
 
 		interactWithMonster(galactus);
 	}
 
 	private void interactWithMonster(MarshmallowMonster currentMonster)
 	{
+		for (int index = 0; index < monsterList.size(); index++)
+		{
+			MarshmallowMonster currentMonster = monsterList.get(index);
+			popup.displayText(currentMonster.getName());
+			String updateName = popup.getResponse("What should my new name be?");
+			currentMonster.setName(updateName);
+			popup.displayText("My new name is " + currentMonster.getName());
+		}
+		
+		for (MarshmallowMonster current : monsterList)
+		{
+			popup.displayText("My name is " + current.getName());
+		}
+		
 		// Asks how many eyes of the monster's current amount you'd like to eat
 		Scanner myScanner = new Scanner(System.in);
 		// System.out.println(currentMonster.getName() + " wants to know how many eyes you want to eat,
